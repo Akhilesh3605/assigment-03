@@ -1,0 +1,371 @@
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap");
+
+/* Root variables for color scheme */
+:root {
+  --main-color: #6dd5ed; /* Main color */
+  --secondary-color: #2193b0; /* Secondary color */
+  --gradient: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--secondary-color)
+  ); /* Gradient effect */
+}
+
+/* Global CSS reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  background: #f6f5f7; /* Background color */
+  font-family: "Nunito", sans-serif; /* Font family */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 1rem 0; /* Margin */
+}
+
+/* Header styling */
+h1 {
+  font-weight: bold;
+  margin: 0; /* Margin */
+}
+
+/* Paragraph styling */
+p {
+  font-size: 14px; /* Font size */
+  font-weight: 100; /* Font weight */
+  line-height: 20px; /* Line height */
+  letter-spacing: 0.5px; /* Letter spacing */
+  margin: 20px 0 30px; /* Margin */
+}
+
+/* Social container styling */
+.social-container {
+  margin: 20px 0; /* Margin */
+}
+
+.social-container a {
+  border: 1px solid #dddddd; /* Border */
+  border-radius: 50%; /* Border radius */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px; /* Margin */
+  height: 40px; /* Height */
+  width: 40px; /* Width */
+}
+
+/* Additional styling for span */
+span {
+  font-size: 12px; /* Font size */
+}
+
+/* Link styling */
+a {
+  color: #333; /* Color */
+  font-size: 14px; /* Font size */
+  text-decoration: none; /* Text decoration */
+  margin: 15px 0; /* Margin */
+}
+
+/* Button styling */
+button {
+  cursor: pointer; /* Cursor */
+  border-radius: 20px; /* Border radius */
+  border: 1px solid var(--main-color); /* Border */
+  background: var(--main-color); /* Background color */
+  color: #fff; /* Text color */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Font weight */
+  padding: 12px 45px; /* Padding */
+  letter-spacing: 1px; /* Letter spacing */
+  text-transform: uppercase; /* Text transform */
+  transition: transform 80ms ease-out; /* Transition effect */
+}
+
+/* Button hover styling */
+button:hover {
+  background: var(--secondary-color); /* Background color on hover */
+}
+
+/* Button active styling */
+button:active {
+  transform: scale(0.95); /* Scale down on active */
+}
+
+/* Button focus styling */
+button:focus {
+  outline: none; /* Remove outline on focus */
+}
+
+/* Ghost button styling */
+button.ghost {
+  background-color: transparent; /* Transparent background */
+  border-color: #fff; /* Border color */
+}
+
+/* Ghost button hover styling */
+button.ghost:hover {
+  background: #fff; /* Background color on hover */
+  color: var(--secondary-color); /* Text color on hover */
+}
+
+/* Form container styling */
+form {
+  background-color: #fff; /* Background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px; /* Padding */
+  height: 100%;
+  text-align: center; /* Text alignment */
+}
+
+/* Input field styling */
+input {
+  background-color: #eee; /* Background color */
+  border: none; /* No border */
+  padding: 12px 15px; /* Padding */
+  margin: 8px 0; /* Margin */
+  width: 100%; /* Full width */
+  font-family: inherit; /* Inherit font family */
+}
+
+/* Main container styling */
+.container {
+  background-color: #fff; /* Background color */
+  border-radius: 10px; /* Border radius */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); /* Box shadow */
+  position: relative; /* Relative positioning */
+  overflow: hidden; /* Hide overflow content */
+  height: 768px; /* Height */
+  width: 480px; /* Width */
+  max-width: 100%; /* Maximum width */
+}
+
+/* Form container within main container */
+.form-container {
+  position: absolute; /* Absolute positioning */
+  top: 0;
+  width: 100%; /* Full width */
+  transition: all 0.6s ease-in-out; /* Transition effect */
+}
+
+/* Sign-in container within form container */
+.sign-in-container {
+  top: 0;
+  height: 50%; /* Half height */
+  z-index: 2; /* Higher stacking order */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .sign-in-container {
+  transform: translateY(100%); /* Move down */
+}
+
+/* Sign-up container within form container */
+.sign-up-container {
+  top: 0;
+  height: 50%; /* Half height */
+  opacity: 0; /* Hidden by default */
+  z-index: 1; /* Lower stacking order */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .sign-up-container {
+  transform: translateY(100%); /* Move down */
+  opacity: 1; /* Show */
+  z-index: 5; /* Higher stacking order */
+  animation: show 0.6s; /* Animation */
+}
+
+/* Keyframe animation for showing container */
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0; /* Hide */
+    z-index: 1; /* Lower stacking order */
+  }
+  50%,
+  100% {
+    opacity: 1; /* Show */
+    z-index: 5; /* Higher stacking order */
+  }
+}
+
+/* Overlay container styling */
+.overlay-container {
+  position: absolute; /* Absolute positioning */
+  left: 0;
+  top: 50%; /* Half height from top */
+  height: 50%; /* Half height */
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow content */
+  transition: transform 0.6s ease-in-out; /* Transition effect */
+  z-index: 100; /* Higher stacking order */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .overlay-container {
+  transform: translateY(-100%); /* Move up */
+}
+
+/* Overlay styling */
+.overlay {
+  background: var(--secondary-color); /* Background color */
+  background: var(--gradient); /* Gradient effect */
+  background-repeat: no-repeat; /* No repeat */
+  background-size: cover; /* Cover entire area */
+  background-position: 0 0; /* Background position */
+  color: #fff; /* Text color */
+  position: relative; /* Relative positioning */
+  top: -100%; /* Move up */
+  width: 100%; /* Full width */
+  height: 200%; /* Double height */
+  transform: translateY(0); /* Move down */
+  transition: transform 0.6s ease-in-out; /* Transition effect */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .overlay {
+  transform: translateY(50%); /* Move down */
+}
+
+/* Overlay panel styling */
+.overlay-panel {
+  position: absolute; /* Absolute positioning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px; /* Padding */
+  text-align: center; /* Text alignment */
+  left: 0;
+  width: 100%; /* Full width */
+  height: 50%; /* Half height */
+  transform: translateY(0); /* Move down */
+  transition: transform 0.6s ease-in-out; /* Transition effect */
+}
+
+/* Left overlay panel styling */
+.overlay-left {
+  transform: translateY(-20%); /* Move up */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .overlay-left {
+  transform: translateY(0); /* Move down */
+}
+
+/* Right overlay panel styling */
+.overlay-right {
+  bottom: 0;
+  transform: translateY(0); /* Move down */
+}
+
+/* Styling when right panel is active */
+.container.right-panel-active .overlay-right {
+  transform: translateY(20%); /* Move up */
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  body {
+    margin: -20px 0 50px; /* Margin */
+  }
+
+  .container {
+    width: 768px; /* Width */
+    max-width: 100%; /* Maximum width */
+    height: 480px; /* Height */
+  }
+
+  .form-container {
+    top: 0;
+    height: 100%; /* Full height */
+    width: 50%; /* Half width */
+  }
+
+  .sign-in-container {
+    left: 0;
+    width: 50%; /* Half width */
+    height: 100%; /* Full height */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .sign-in-container {
+    transform: translateX(100%); /* Move right */
+  }
+
+  .sign-up-container {
+    left: 0;
+    width: 50%; /* Half width */
+    height: 100%; /* Full height */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .sign-up-container {
+    transform: translateX(100%); /* Move right */
+  }
+
+  .overlay-container {
+    left: 50%; /* Half width from left */
+    top: 0;
+    height: 100%; /* Full height */
+    width: 50%; /* Half width */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .overlay-container {
+    transform: translateX(-100%); /* Move left */
+  }
+
+  .overlay {
+    top: 0;
+    left: -100%;
+    height: 100%; /* Full height */
+    width: 200%; /* Double width */
+    transform: translateX(0); /* Move right */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .overlay {
+    transform: translateX(50%); /* Move right */
+  }
+
+  .overlay-panel {
+    top: 0;
+    height: 100%; /* Full height */
+    width: 50%; /* Half width */
+    transform: translateX(0); /* Move right */
+  }
+
+  /* Styling for left overlay panel */
+  .overlay-left {
+    transform: translateX(-20%); /* Move left */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .overlay-left {
+    transform: translateX(0); /* Move right */
+  }
+
+  /* Styling for right overlay panel */
+  .overlay-right {
+    right: 0;
+    top: 0;
+    left: 50%; /* Half width from left */
+    transform: translateX(0); /* Move right */
+  }
+
+  /* Styling when right panel is active */
+  .container.right-panel-active .overlay-right {
+    transform: translateX(20%); /* Move left */
+  }
+}
